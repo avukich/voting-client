@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {
 	renderIntoDocument,
-	scryRenderedDOMComponentsWithTag,
+	scryRenderedDOMComponentsWithClass,
 	Simulate
 } from 'react-addons-test-utils';
 import {List, Map} from 'immutable';
@@ -17,7 +17,7 @@ describe('ScoreCard', () => {
 		const component = renderIntoDocument(
 			<ScoreCard pair={pair} tally={tally} />
 		);
-		const entries = scryRenderedDOMComponentsWithTag(component, 'entry');
+		const entries = scryRenderedDOMComponentsWithClass(component, 'entry');
 		const [train, days] = entries.map(e => e.textContent);
 
 		expect(entries.length).to.equal(2);
